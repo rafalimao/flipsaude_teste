@@ -1,0 +1,78 @@
+{
+    "info": {
+        "_postman_id": "unique_id",
+        "name": "Teste Task Management API",
+        "description": "Coleção de rotas para projeto Flip Saude",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Root",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": []
+                },
+                "description": "Mensagem de boas vindas"
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{base_url}}/login",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                },
+                "description": "Authenticate user",
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "email",
+                            "value": "user@example.com",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "password123",
+                            "type": "text"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Criar nova Tarefa",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "{{base_url}}/tasks",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "tasks"
+                    ]
+                },
+                "description": "Criar nova Tarefa",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"titulo\": \"Titulo\",\n\t\"descricao\": \"Descrição\"\n}"
+                }
+            },
+            "response": []
+        },
+    ]
+}
