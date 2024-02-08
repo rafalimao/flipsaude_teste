@@ -26,16 +26,19 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('checkTaskOwner')->group(function () {
-    // Rotas que exigem verificação de propriedade de tarefa
+    // Rotas que exigem verificação se o usuário é dono da tarefa
     Route::put('/tasks/{task}', [TaskController::class, 'update']);
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
 });
 
-// Rotas para listar e criar tarefas
-Route::get('/tasks', [TaskController::class, 'index']);
-Route::post('/tasks', [TaskController::class, 'store']);
+// Rotas para listar e criar tarefas mediante autenticação
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tasks', [TaskController::class, 'index']);
+    Route::post('/tasks', [TaskController::class, 'store']);
 
-// Rotas para exibir, atualizar e excluir tarefas cadastradas
-Route::get('/tasks/{task}', [TaskController::class, 'show']);
-Route::put('/tasks/{task}', [TaskController::class, 'update']);
-Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
+    // Rotas para exibir, atualizar e excluir tarefas cadastradas
+    Route::get('/tasks/{task}', [TaskController::class, 'show']);
+    Route::put('/tasks/{task}', [TaskController::class, 'update']);
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
+});
+

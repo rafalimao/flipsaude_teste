@@ -72,4 +72,39 @@ class TaskTest extends TestCase
                      ]
                  ]);
     }
+
+    /**
+     * Testa se o status de uma tarefa é "Pendente".
+     *
+     * @return void
+     */
+    public function testTaskStatusIsPending()
+    {
+        // Criar uma nova tarefa com status "Pendente"
+        $task = new Task();
+        $task->titulo = 'Minha tarefa';
+        $task->descricao = 'Nova tarefa pendente';
+        $task->status = 'pendente';
+
+        // Verificar se o status da tarefa é "Pendente"
+        $this->assertEquals('Pendente', $task->status);
+    }
+
+    /**
+     * Testa se o status de uma tarefa é "Concluída".
+     *
+     * @return void
+     */
+    public function testTaskStatusIsDone()
+    {
+        // Criar uma nova tarefa com status "Pendente"
+        $task = new Task();
+        $task->titulo = 'Minha tarefa';
+        $task->descricao = 'Esta tarefa está concluida.';
+        $task->status = 'concluida';
+
+        // Verificar se o status da tarefa é "Pendente"
+        $this->assertEquals('concluida', $task->status);
+    }
+
 }
