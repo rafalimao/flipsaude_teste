@@ -21,32 +21,32 @@ git clone https://github.com/rafalimao/flipsaude_teste
 
 ```bash
 cd nome-do-projeto
-
+```
 3. Instale as dependências do Composer:
 
 ```bash
 composer install
-
+```
 4. Copie o arquivo de ambiente:
 
 ```bash
 cp .env.example .env
-
+```
 5. Gere a chave de aplicativo:
 
 ```bash
 php artisan key:generate
-
+```
 6. Execute as migrações do banco de dados:
 
 ```bash
 php artisan migrate
-
+```
 7. Inicie o servidor local:
 
 ```bash
 Inicie o servidor local:
-
+```
 
 ## Testes Unitários
 
@@ -54,6 +54,6 @@ Para executar os testes unitários, utilize o PHPUnit:
 
 ```bash
 php artisan test
-
+```
 ## Collection do Postman
 Uma Collection do Postman está disponível para testar as APIs do sistema. Importe-a para o Postman e execute as requisições para testar todas as rotas.
